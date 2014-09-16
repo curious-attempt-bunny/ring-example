@@ -1,3 +1,9 @@
-(ns example.server)
+(ns example.server
+	(:require [ring.adapter.jetty :as jetty]))
 
-(defn main [] true)
+(defn handler [request]
+	{:status 200}) ; Defaults to an empty body
+
+(defn main [] 
+	(jetty/run-jetty handler {:port 3000}))
+
